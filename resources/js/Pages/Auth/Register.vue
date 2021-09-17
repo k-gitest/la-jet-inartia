@@ -28,6 +28,17 @@
                 <jet-label for="password_confirmation" value="Confirm Password" />
                 <jet-input id="password_confirmation" type="password" class="mt-1 block w-full" v-model="form.password_confirmation" required autocomplete="new-password" />
             </div>
+            
+            <div class="mt-4">
+             <jet-label for="access_auth" value="Access_Auth" />
+             <select id="access_auth"  v-model="access_auth" class="block mt-1 w-full" type="access_auth" name="access_auth" required >
+              <option value="User">User</option>
+              <option value="Manager">Manager</option>
+              <option value="Admin">Admin</option>
+             </select>
+            </div>
+          
+            
 
             <div class="mt-4" v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature">
                 <jet-label for="terms">
@@ -85,6 +96,7 @@
                     email: '',
                     password: '',
                     password_confirmation: '',
+                    access_auth: 'User',
                     terms: false,
                 })
             }

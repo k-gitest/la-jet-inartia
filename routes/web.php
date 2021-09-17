@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\Menu\MenuController;//コントローラーを追加したらuseする
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -15,6 +15,9 @@ use Inertia\Inertia;
 |
 */
 
+//Route::get('/menu/menu' , [MenuController::class, 'menu']);
+
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -27,3 +30,14 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
+
+
+Route::middleware(['auth:sanctum'] , 'verified')->get('/menu/menu' , 
+    function(){
+        return view('menu/menu');
+    }
+)->name('menu');
+
+
+
+

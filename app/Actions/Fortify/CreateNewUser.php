@@ -27,10 +27,27 @@ class CreateNewUser implements CreatesNewUsers
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
         ])->validate();
 
+        // 入力された値をコード値に変換する処理を追加
+        switch ($input['access_auth']) {
+            case "User":
+                $auth_code = "0";
+                break;
+            case "Manager":
+                $auth_code = "1";
+                break;
+            case "Admin":
+                $auth_code = "9";
+                break;
+        }
+        // ここまで変換
+        var_dump($auth_code);
+        $input['auth_code'] = $auth_code;
+        
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
+            'access_auth' => $input['auth_code']
         ]);
     }
 }
