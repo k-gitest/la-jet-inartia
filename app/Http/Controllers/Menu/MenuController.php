@@ -21,9 +21,10 @@ class MenuController extends Controller
             return view('/');
         }
         */
-        
-        
-
+    }
+    
+    public function secret(){
+        return view('secret/secret');
     }
     
 }

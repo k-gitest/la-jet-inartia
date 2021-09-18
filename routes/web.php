@@ -1,5 +1,7 @@
 <?php
-use App\Http\Controllers\Menu\MenuController;//コントローラーを追加したらuseする
+use App\Http\Controllers\Menu\MenuController;
+use App\Http\Controllers\TestinputController;
+//コントローラーを追加したらuseする
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -16,6 +18,9 @@ use Inertia\Inertia;
 */
 
 //Route::get('/menu/menu' , [MenuController::class, 'menu']);
+Route::get('/testinput/edit' , [TestinputController::class , 'edit'])->name('testinput.edit');
+Route::get('/testinput/show' , [TestinputController::class , 'show'])->name('testinput.show');
+Route::get('/secret/secret' , [MenuController::class, 'secret'])->name('secret');
 
 
 Route::get('/', function () {

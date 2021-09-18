@@ -40,14 +40,12 @@ class CreateNewUser implements CreatesNewUsers
                 break;
         }
         // ここまで変換
-        var_dump($auth_code);
-        $input['auth_code'] = $auth_code;
         
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
-            'access_auth' => $input['auth_code']
+            'access_auth' => $auth_code
         ]);
     }
 }

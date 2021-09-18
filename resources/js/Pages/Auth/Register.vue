@@ -31,10 +31,11 @@
             
             <div class="mt-4">
              <jet-label for="access_auth" value="Access_Auth" />
-             <select id="access_auth"  v-model="access_auth" class="block mt-1 w-full" type="access_auth" name="access_auth" required >
-              <option value="User">User</option>
-              <option value="Manager">Manager</option>
-              <option value="Admin">Admin</option>
+             <select id="access_auth" class="block mt-1 w-full" v-model="form.access_auth" required >
+                 <option disabled >権限を選択</option>
+              <option>User</option>
+              <option>Manager</option>
+              <option>Admin</option>
              </select>
             </div>
           
@@ -96,7 +97,7 @@
                     email: '',
                     password: '',
                     password_confirmation: '',
-                    access_auth: 'User',
+                    access_auth: '',
                     terms: false,
                 })
             }
