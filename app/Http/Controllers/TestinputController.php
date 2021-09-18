@@ -12,16 +12,16 @@ class TestinputController extends Controller
     public function show()
     {
         //照会画面を表示
-        return view('testinput.show');
+       return Inertia::render('Menu/Show');
     }
     
     public function edit(){
         if(Gate::denies('user')){
             //更新画面を表示
-            return view('testinput.edit');
+            return Inertia::render('Menu/Edit');
         } else {
             session()->flash('editmsg' ,'権限がないので更新できません');
-            return view('menu/menu');
+            return Inertia::render('Menu');
         }
     }
 }

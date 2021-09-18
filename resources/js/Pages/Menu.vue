@@ -5,6 +5,17 @@
                 Menuboard
             </h2>
         </template>
+        
+
+        <Link href="/menu/show">照会処理</Link>
+        <Link href="/menu/edit">
+             更新処理 
+        </Link>
+        
+        <Link href="/dashboard">
+            Dahsboard
+        </Link>
+        
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -18,11 +29,13 @@
 
 <script>
     import { defineComponent } from 'vue'
+    import { Link } from '@inertiajs/inertia-vue3';//追加
     import AppLayout from '@/Layouts/AppLayout.vue'
     import Welcome from '@/Jetstream/Welcome.vue'
 
     export default defineComponent({
         components: {
+            Link,//追加
             AppLayout,
             Welcome,
         },
