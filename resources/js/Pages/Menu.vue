@@ -5,18 +5,18 @@
                 Menuboard
             </h2>
         </template>
-        
-
+        <div>
+            ようこそ{{ $page.props.user.name }}さん！
+        </div>
+        <hr>
         <Link href="/menu/show">照会処理</Link>
-        <Link href="/menu/edit">
-             更新処理 
-        </Link>
+        <Link href="/menu/edit">更新処理</Link>
+        <Link href="/dashboard">ダッシュボード</Link>
         
-        <Link href="/dashboard">
-            Dahsboard
-        </Link>
+        <div v-if="$page.props.user.access_auth > 0">
+            <Link :href="route('secret')">秘密の部屋</Link>
+        </div>
         
-
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
