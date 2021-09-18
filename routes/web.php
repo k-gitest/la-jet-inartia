@@ -18,7 +18,7 @@ use Inertia\Inertia;
 */
 
 //Route::get('/menu/menu' , [MenuController::class, 'menu']);
-Route::get('/testinput/edit' , [TestinputController::class , 'edit'])->name('testinput.edit');
+Route::get('/testinput/edit' , [TestinputController::class , 'edit'])->name('testinput.edit');//名前付けルーティング
 Route::get('/testinput/show' , [TestinputController::class , 'show'])->name('testinput.show');
 Route::get('/secret/secret' , [MenuController::class, 'secret'])->name('secret');
 
@@ -32,14 +32,15 @@ Route::get('/', function () {
     ]);
 });
 
+//ミドルウェアルーティングにsanctum使用の名前付けルーティング
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
 
-Route::middleware(['auth:sanctum'] , 'verified')->get('/menu/menu' , 
+Route::middleware(['auth:sanctum' , 'verified'])->get('/menu' , 
     function(){
-        return view('menu/menu');
+        return Inertia::render('Menu');
     }
 )->name('menu');
 
