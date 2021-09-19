@@ -14,6 +14,11 @@
 
         <!-- Scripts -->
         @routes
+        <!-- 日本語化 -->
+        <script>
+            var __locale = '{{ app()->getLocale() }}'
+        </script>
+        
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
