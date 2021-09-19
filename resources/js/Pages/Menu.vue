@@ -12,6 +12,7 @@
         <Link href="/menu/show">照会処理</Link>
         <Link href="/menu/edit">更新処理</Link>
         <Link href="/dashboard">ダッシュボード</Link>
+        <inertia-link href="/" class="text-blue-700 underline m-2">Home</inertia-link>
         
         <div v-if="$page.props.user.access_auth > 0">
             <Link :href="route('secret')">秘密の部屋</Link>
