@@ -103,15 +103,15 @@
                                     <template #content>
                                         <!-- Account Management -->
                                         <div class="block px-4 py-2 text-xs text-gray-400">
-                                            Manage Account
+                                            {{ $t('Manage Account') }}
                                         </div>
 
                                         <jet-dropdown-link :href="route('profile.show')">
-                                            Profile
+                                            {{ $t('Profile') }}
                                         </jet-dropdown-link>
 
                                         <jet-dropdown-link :href="route('api-tokens.index')" v-if="$page.props.jetstream.hasApiFeatures">
-                                            API Tokens
+                                            {{ $t('API Tokens') }}
                                         </jet-dropdown-link>
 
                                         <div class="border-t border-gray-100"></div>
@@ -119,7 +119,7 @@
                                         <!-- Authentication -->
                                         <form @submit.prevent="logout">
                                             <jet-dropdown-link as="button">
-                                                Log Out
+                                                {{ $t('Log Out') }}
                                             </jet-dropdown-link>
                                         </form>
                                     </template>
