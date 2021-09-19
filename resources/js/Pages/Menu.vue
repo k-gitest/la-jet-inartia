@@ -9,11 +9,10 @@
             ようこそ{{ $page.props.user.name }}さん！
         </div>
         <hr>
-        <Link href="/menu/show">照会処理</Link>
-        <Link href="/menu/edit">更新処理</Link>
-        <Link href="/dashboard">ダッシュボード</Link>
-        <inertia-link href="/" class="text-blue-700 underline m-2">Home</inertia-link>
-        
+        <Link href="/menu/show" class="text-blue-700 underline m-2">照会処理</Link>
+        <Link href="/menu/edit" class="text-blue-700 underline m-2">更新処理</Link>
+        <Link href="/dashboard" class="text-blue-700 underline m-2">ダッシュボード</Link>
+        <inertia-link href="/" class="text-sm text-blue-700 underline">back to HOME</inertia-link>
         <div v-if="$page.props.user.access_auth > 0">
             <Link :href="route('secret')">秘密の部屋</Link>
         </div>

@@ -1,7 +1,7 @@
 require('./bootstrap');
 
     import { createApp, h } from 'vue';
-    import { createInertiaApp } from '@inertiajs/inertia-vue3';
+    import { createInertiaApp , Link , Head } from '@inertiajs/inertia-vue3';
     import { InertiaProgress } from '@inertiajs/progress';
     import { createI18n } from 'vue-i18n'//日本語化追加
 
@@ -31,6 +31,8 @@ require('./bootstrap');
             return createApp({ render: () => h(app, props) })
                 .use(plugin)
                 .use(i18n)//日本語をグローバルで使う
+                .component('InertiaHead', Head)
+            .component('InertiaLink', Link)
                 .mixin({ methods: { route } })
                 .mount(el);
         },
