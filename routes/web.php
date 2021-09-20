@@ -6,13 +6,6 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-/*
-Route::get('/menu/menu' , [MenuController::class, 'menu']);
-Route::get('/menu/edit' , [TestinputController::class , 'edit'])->name('menu.edit');//名前付けルーティング
-Route::get('/menu/show' , [TestinputController::class , 'show'])->name('menu.show');
-Route::get('/secret/secret' , [MenuController::class, 'secret'])->name('secret');
-*/
-
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -52,7 +45,12 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     
 });
 
-
+/*
+Route::get('/menu/menu' , [MenuController::class, 'menu']);
+Route::get('/menu/edit' , [TestinputController::class , 'edit'])->name('menu.edit');//名前付けルーティング
+Route::get('/menu/show' , [TestinputController::class , 'show'])->name('menu.show');
+Route::get('/secret/secret' , [MenuController::class, 'secret'])->name('secret');
+*/
 
 //ミドルウェアルーティングにsanctum使用の名前付けルーティング
 /*
