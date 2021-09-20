@@ -22,7 +22,40 @@ Route::get('/', function () {
     ]);
 });
 
+//ミドルウェアでのグループ化
+//複数のグループ化を一括で設定も出来るのでURIも考えて設計した方が良い
+Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
+    Route::get('/dashboard', function(){
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
+    
+    Route::get('/menu' , function(){
+        return Inertia::render('Menu');//inertiaではrenderメソッドでルーティング指定する
+    })->name('menu');
+    
+    //プレフィックスでグループ化
+    Route::prefix('menu')->group(function(){
+        Route::get('show' , function(){
+            return Inertia::render('Menu/Show');
+        })->name('menu.show');
+        
+        Route::get('edit' , 
+        function(){
+            return Inertia::render('Menu/Edit');
+        })->name('menu.edit');
+        
+    });
+    
+    Route::get('/secret/secret' , function(){
+        return Inertia::render('Secret/Secret');
+    })->name('secret');
+    
+});
+
+
+
 //ミドルウェアルーティングにsanctum使用の名前付けルーティング
+/*
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
         return Inertia::render('Dashboard');
 })->name('dashboard');
@@ -51,4 +84,4 @@ Route::middleware(['auth:sanctum' , 'verified'])->get('/secret/secret' ,
         return Inertia::render('Secret/Secret');//inertiaではrenderメソッドでルーティング指定する
     }
 )->name('secret');
-
+*/
